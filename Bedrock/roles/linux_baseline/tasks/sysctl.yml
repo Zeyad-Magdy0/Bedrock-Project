@@ -1,7 +1,0 @@
-- name: 'Set sysctl params'
-  sysctl:
-    name: '{{ item.key }}'
-    value: '{{ item.value }}'
-    state: present
-    reload: yes
-  loop: '{{ sysctl_params | dict2items }}'

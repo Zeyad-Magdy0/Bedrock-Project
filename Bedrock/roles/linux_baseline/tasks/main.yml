@@ -1,5 +1,0 @@
-  - import_tasks: preflight.yml
-  - import_tasks: swap.yml
-  - import_tasks: kernel_modules.yml
-  - import_tasks: sysctl.yml
-  - import_tasks: time.yml

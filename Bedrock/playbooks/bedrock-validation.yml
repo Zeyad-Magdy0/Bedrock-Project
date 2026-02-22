@@ -1,8 +1,0 @@
----
-- name: ' Bedrock Phase 1: Validation '
-  hosts: all
-  become: true
-  gather_facts: true
-
-  roles:
-    - validations

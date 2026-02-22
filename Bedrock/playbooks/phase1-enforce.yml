@@ -1,9 +1,0 @@
----
-- name: ' Bedrock Phase 1: OS & Runtime Enforcement '
-  hosts: all
-  become: true
-  gather_facts: true
-
-  roles:
-    - linux_baseline
-    - container_runtime
