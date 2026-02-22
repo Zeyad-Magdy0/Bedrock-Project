@@ -1,0 +1,6 @@
+- name: 'Bedrock Phase 3: Vault Deployment'
+  hosts: control_plane
+  become: true
+  
+  roles:
+    - vault

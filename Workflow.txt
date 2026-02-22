@@ -1,0 +1,126 @@
+┌──────────────────────────
+│            DESIGN PHASE          │
+└──────────────────────────
+                │
+                ▼
+     Define Kubernetes Node Contract
+                │
+                ▼
+     Define Infrastructure Requirements
+                │
+                ▼
+     Define Cluster Topology (1 CP, 2 W)
+                │
+                ▼
+┌──────────────────────────
+│          PROVISION PHASE         │
+└──────────────────────────
+                │
+                ▼
+        terraform init
+                │
+                ▼
+        terraform apply
+                │
+                ▼
+        AWS Resources Created
+        - VPC
+        - Subnet
+        - Security Groups
+        - EC2 Instances
+                │
+                ▼
+     Terraform Outputs Node IPs
+                │
+                ▼
+┌──────────────────────────
+│          ENFORCEMENT PHASE       │
+│       (Ansible Phase 1)          │
+└──────────────────────────
+                │
+                ▼
+     Preflight Validation
+     - OS check
+     - RAM/CPU check
+     - SSH connectivity
+                │
+                ▼
+     Enforce OS Invariants
+     - Disable swap
+     - Load kernel modules
+     - Set sysctl
+     - Enable time sync
+                │
+                ▼
+     Install & Configure containerd
+     - Install package
+     - Configure CRI
+     - Align systemd cgroup driver
+                │
+                ▼
+     Validate Runtime Invariants
+                │
+                ▼
+        Nodes Kubernetes-Eligible
+                │
+                ▼
+┌──────────────────────────
+│          BOOTSTRAP PHASE         │
+│       (Ansible Phase 2)          │
+└──────────────────────────
+                │
+                ▼
+     Install kubeadm/kubelet/kubectl
+                │
+                ▼
+     Initialize Control Plane
+                │
+                ▼
+     Generate Join Token
+                │
+                ▼
+     Join Worker Nodes
+                │
+                ▼
+     Install CNI Plugin
+                │
+                ▼
+     Validate Cluster Health
+     - Nodes Ready
+     - API Server Reachable
+                │
+                ▼
+        Functional Kubernetes Cluster
+                │
+                ▼
+┌──────────────────────────
+│         PLATFORM PHASE           │
+│       (Ansible Phase 3)          │
+└──────────────────────────
+                │
+                ▼
+     Deploy Vault to Kubernetes
+     - Apply manifests or Helm
+                │
+                ▼
+     Configure Kubernetes Auth
+                │
+                ▼
+     Validate Vault Pods Ready
+                │
+                ▼
+        Platform Operational
+                │
+                ▼
+┌──────────────────────────
+│           OPERATIONS             │
+└──────────────────────────
+                │
+                ▼
+     Re-run Phase 1 (Drift Correction)
+                │
+                ▼
+     Re-run Phase 2 (Safe Idempotency)
+                │
+                ▼
+     terraform destroy (Full Teardown)

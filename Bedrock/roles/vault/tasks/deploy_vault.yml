@@ -1,0 +1,126 @@
+# ----------------------------------------
+# Helm Repo
+# ----------------------------------------
+
+- name: Add HashiCorp Helm repo
+  command: helm repo add {{ vault_helm_repo_name }} {{ vault_helm_repo_url }}
+  register: repo_add
+  changed_when: "'has been added' in repo_add.stdout"
+  failed_when: false
+
+- name: Update Helm repos
+  command: helm repo update
+  changed_when: false
+
+
+# ----------------------------------------
+# Values File
+# ----------------------------------------
+
+- name: 'Create Vault values file'
+  copy:
+    dest: /tmp/vault-values.yaml
+    mode: '0644'
+    content: |
+      server:
+        image:
+          tag: "{{ vault_image_tag }}"
+        ha:
+          enabled: true
+          replicas: {{ vault_replicas }} 
+          raft:
+            enabled: true
+        dataStorage:
+          enabled: true
+          size: {{ vault_storage_size }}
+        service:
+          type: ClusterIP
+
+
+# ----------------------------------------
+# Detect Existing Release
+# ----------------------------------------
+
+- name: 'Check if Vault release exists'
+  command: helm status {{ vault_release_name }} -n {{ vault_namespace }}
+  register: vault_release_check
+  failed_when: false
+  changed_when: false
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+
+
+# ----------------------------------------
+# Clean Removal (If Exists)
+# ----------------------------------------
+
+- name: 'Uninstall Vault if exists'
+  command: helm uninstall {{ vault_release_name }} -n {{ vault_namespace }}
+  when: vault_release_check.rc == 0
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+
+- name: Wait until Vault namespace is fully clean (no pods)
+  command: kubectl get pods -n {{ vault_namespace }} --no-headers
+  register: vault_pods_check
+  retries: 60
+  delay: 5
+  until: vault_pods_check.stdout == ""
+  changed_when: false
+  failed_when: false
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+
+- name: Delete Vault PVCs if release existed
+  command: kubectl delete pvc -n {{ vault_namespace }} --all
+  when: vault_release_check.rc == 0
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+
+
+# ----------------------------------------
+# Fresh Deploy
+# ----------------------------------------
+
+- name: Deploy Vault via Helm
+  command: >
+    helm upgrade --install {{ vault_release_name }}
+    {{ vault_helm_repo_name }}/vault
+    --namespace {{ vault_namespace }}
+    --create-namespace
+    --version {{ vault_chart_version }}
+    -f /tmp/vault-values.yaml
+  register: helm_deployment_result
+  changed_when: >
+    "deployed" in helm_deployment_result.stdout or
+    "upgraded" in helm_deployment_result.stdout
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+
+
+# ----------------------------------------
+# Wait for StatefulSet Controller
+# ----------------------------------------
+
+- name: Wait for Vault StatefulSet to exist
+  command: kubectl get statefulset vault -n {{ vault_namespace }}
+  register: vault_sts_exists
+  retries: 40
+  delay: 5
+  until: vault_sts_exists.rc == 0
+  changed_when: false
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+
+- name: Wait until Vault StatefulSet replicas are created
+  command: >
+    kubectl get statefulset vault
+    -n {{ vault_namespace }}
+    -o jsonpath='{.status.replicas}'
+  register: vault_replicas_status
+  retries: 60
+  delay: 5
+  until: vault_replicas_status.stdout | default(0) | int == vault_replicas
+  changed_when: false
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"

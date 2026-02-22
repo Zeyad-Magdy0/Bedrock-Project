@@ -1,0 +1,33 @@
+- name: 'Ensure containerd config file exists'
+  stat:
+    path: '{{ containerd_config_path }}'
+  register: containerd_config_stat
+
+- name: Ensure containerd config directory exists
+  file:
+    path: "{{ containerd_config_path | dirname }}"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  when: not containerd_config_stat.stat.exists
+
+- name: 'Generate containerd config file'
+  command: 'containerd config default'
+  register: containerd_default_config
+  when: containerd_config_stat.stat.exists is false
+  changed_when: false
+
+- name: 'Write containerd config'
+  copy:
+    content: "{{ containerd_default_config.stdout }}" 
+    dest: "{{ containerd_config_path }}"
+  when: containerd_config_stat.stat.exists is false
+  notify: 'restart containerd'
+
+- name: 'Ensure SystemdCgroup is set to true'
+  replace:
+    path: "{{ containerd_config_path }}"
+    regexp: 'SystemdCgroup\s*=\s*false'
+    replace: 'SystemdCgroup = true'
+  notify: 'restart containerd'

@@ -1,0 +1,34 @@
+- name: Extract unseal keys
+  set_fact:
+    unseal_keys: "{{ (vault_init.stdout | from_json).unseal_keys_b64 }}"
+  when: vault_init is changed
+
+- name: Unseal vault-0 (first 3 keys)
+  command: >
+    kubectl exec -n {{ vault_namespace }}
+    {{ vault_release_name }}-0
+    -- vault operator unseal {{ item }}
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+  loop: "{{ unseal_keys[0:3] }}"
+  when: vault_init is changed
+
+- name: Check if Vault NodePort service exists
+  command: kubectl get svc vault-nodeport -n {{ vault_namespace }}
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+  register: vault_svc_check
+  failed_when: false
+  changed_when: false
+
+- name: Create Vault NodePort service
+  command: >
+    kubectl expose pod {{ vault_release_name }}-0
+    -n {{ vault_namespace }}
+    --port=8200
+    --target-port=8200
+    --type=NodePort
+    --name=vault-nodeport
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+  when: vault_svc_check.rc != 0 

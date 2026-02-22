@@ -1,0 +1,11 @@
+- name: 'Install containerd'
+  package:
+    name: containerd
+    state: present
+    update_cache: yes
+
+- name: 'Ensure containerd service is enabled'
+  systemd:
+    name: containerd
+    state: started
+    enabled: yes

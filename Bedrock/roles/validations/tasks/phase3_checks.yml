@@ -1,0 +1,53 @@
+# ------------------------------------------------------------
+# Validate Vault Pods Ready
+# ------------------------------------------------------------
+
+- name: Ensure Vault pods are Ready
+  command: >
+    kubectl wait
+    --for=condition=Ready
+    pods
+    --namespace {{ vault_namespace }}
+    --all
+    --timeout=60s
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+  register: vault_ready
+  retries: 10
+  delay: 10
+  until: vault_ready.rc == 0
+  changed_when: false
+  run_once: true
+  delegate_to: "{{ groups['_control_plane'][0] }}"
+
+# ------------------------------------------------------------
+# Validate Vault StatefulSet Exists
+# ------------------------------------------------------------
+
+- name: Check Vault StatefulSet
+  command: >
+    kubectl get statefulset
+    -n {{ vault_namespace }}
+    {{ vault_release_name }}
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+  register: vault_sts
+  changed_when: false
+
+- debug:
+    msg: "Vault StatefulSet is present."
+
+
+# ------------------------------------------------------------
+# Show Vault Service
+# ------------------------------------------------------------
+
+- name: Show Vault service
+  command: kubectl get svc -n {{ vault_namespace }}
+  environment:
+    KUBECONFIG: "{{ kubeconfig_path }}"
+  register: vault_service
+  changed_when: false
+
+- debug:
+    var: vault_service.stdout

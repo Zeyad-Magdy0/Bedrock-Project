@@ -1,0 +1,15 @@
+- name: 'Ensure service is running'
+  systemd:
+    name: containerd
+    state: started
+
+- name: 'Verify containerd socket exists'
+  stat:
+    path: '{{ containerd_socket }}'
+  register: containerd_socket_stat
+
+#- name: 'Fail if containerd socket is missing'
+#  assert:
+#    that:
+#      - containerd_socket_stat.stat.exists
+#    fail_msg: 'Containerd socket is missing'
