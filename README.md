@@ -1,4 +1,4 @@
-# Bedrock Platform – Ideompotent Automated Kubernetes + Vault Deployment
+# Bedrock Platform – Ideompotent Automated Infrastructure Design Enforcement +  Kubernetes Cluster Initilization + Vault Deployment
 
 ## Overview
 
