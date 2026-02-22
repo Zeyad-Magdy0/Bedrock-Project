@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  role_name: validations
+  author: Mohammed <YourLastName>
+  description: Performs passive validation checks on Kubernetes clusters and workloads.
+  company: ""
+  license: MIT
+  min_ansible_version: "2.14"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+
+  galaxy_tags:
+    - kubernetes
+    - validation
+    - healthcheck
+    - devops
+    - observability
+
+dependencies: []

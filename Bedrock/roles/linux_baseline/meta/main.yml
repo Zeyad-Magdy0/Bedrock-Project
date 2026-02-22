@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  role_name: linux_baseline
+  author: Mohammed <YourLastName>
+  description: Prepares Ubuntu hosts with required kernel, sysctl, and system settings for Kubernetes.
+  company: ""
+  license: MIT
+  min_ansible_version: "2.14"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+
+  galaxy_tags:
+    - linux
+    - baseline
+    - kubernetes
+    - sysctl
+    - devops
+
+dependencies: []

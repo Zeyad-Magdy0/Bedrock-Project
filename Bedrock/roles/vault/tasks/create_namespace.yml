@@ -1,0 +1,13 @@
+- name: Check if Vault namespace exists
+  command: kubectl get namespace {{ vault_namespace }}
+  register: vault_ns_check
+  failed_when: false
+  changed_when: false
+  environment:
+    KUBECONFIG: '{{ kubeconfig_path }}'
+
+- name: Ensure Vault namespace exists
+  command: kubectl create namespace {{ vault_namespace }}
+  when: vault_ns_check.rc != 0
+  environment:
+    KUBECONFIG: '{{ kubeconfig_path }}'

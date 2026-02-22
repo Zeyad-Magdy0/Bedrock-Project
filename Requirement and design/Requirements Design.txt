@@ -1,0 +1,59 @@
+Design Phase:
+
+OS: Ubuntu 22.04, x86-64 Architecture
+Cluster Topology: 1 Control Plane Node, 2 Worker Nodes [3 Virtual Machines]
+Kubernetes Version Strategy: Latest Using Kubeadm
+
+Resource Baseline:
+- Control-plane: 2 vCPU / 4GB RAM
+- Worker: 2 vCPU / 4GB RAM
+- 40GB root disk
+
+Network Requirements:
+
+Option B:				         
+Bastion host				Local → SSH → Bastion EC2 [Public Subnet] → SSH → Private Subnet [Control Plane EC2s, Worker Nodes EC2s ]
+All nodes private
+
+Security Groups Ports:
+
+Allow internally:
+6443 (API server)
+10250 (kubelet)
+2379–2380 (etcd future-proof)
+
+Allow externally:
+22 (SSH, restricted IP ideally)
+
+OS Requirements
+- Ubuntu 22.04 (or defined distro)
+- SSH access available
+- Python installed
+
+Execution Boundaries:
+Terraform: 
+- Creates VPC
+- Creates Subnet
+- Creates EC2
+- Attaches security group
+- Outputs IPs
+
+Ansible:
+- Connects via SSH
+- Enforces contract
+- Bootstraps cluster
+
+
+Failure Assumptions
+- If a worker dies → Terraform recreates → Ansible re-enforces → join again
+- If swap re-enabled → Phase1 validate fails
+- If kubeadm fails → stop pipeline, don’t continue
+ 
+
+State Transitions:
+State	Meaning
+S0		No infrastructure
+S1		EC2 instances exist
+S2		Nodes eligible
+S3		Cluster operational
+S4		Vault running

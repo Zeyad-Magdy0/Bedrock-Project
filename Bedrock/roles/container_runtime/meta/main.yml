@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  role_name: container_runtime
+  author: Mohammed <YourLastName>
+  description: Installs and configures containerd for Kubernetes clusters.
+  company: ""
+  license: MIT
+  min_ansible_version: "2.14"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+
+  galaxy_tags:
+    - containerd
+    - kubernetes
+    - runtime
+    - devops
+    - containers
+
+dependencies:
+  - linux_baseline

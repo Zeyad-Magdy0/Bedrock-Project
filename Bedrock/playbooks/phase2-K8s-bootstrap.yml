@@ -1,0 +1,7 @@
+- name: 'Bedrock Phase 2: Kuberenetes Bootstrap'
+  hosts: all
+  become: true
+  gather_facts: true
+
+  roles:
+    - kubernetes

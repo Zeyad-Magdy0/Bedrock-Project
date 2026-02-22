@@ -1,0 +1,21 @@
+- import_tasks: install_packages.yml
+
+- import_tasks: init_control_plane.yml
+  when: inventory_hostname in groups[control_plane_group]
+
+- import_tasks: configure_kubectl.yml
+  when: inventory_hostname in groups[control_plane_group]
+
+
+- import_tasks: generate_join_command.yml
+  when: inventory_hostname in groups[control_plane_group]
+
+- import_tasks: join_workers.yml
+  when: inventory_hostname in groups[worker_group]
+  
+- import_tasks: install_calico.yml
+  when: inventory_hostname in groups[control_plane_group]
+
+- import_tasks: local_storage_provisioner.yml
+  when: inventory_hostname in groups[control_plane_group]
+

@@ -1,0 +1,74 @@
+# ------------------------------------------------------------
+# 1️⃣ Check if worker is registered in cluster
+# ------------------------------------------------------------
+
+- name: Check if worker is registered in cluster
+  command: kubectl get node {{ ansible_facts["hostname"] }}
+  delegate_to: "{{ groups[control_plane_group][0] }}"
+  environment:
+    KUBECONFIG: '{{ kube_admin_conf }}'
+  register: worker_node_check
+  failed_when: false
+  changed_when: false
+
+# ------------------------------------------------------------
+# 2️⃣ Always check kubelet.conf existence
+# ------------------------------------------------------------
+
+- name: Check if kubelet.conf exists
+  stat:
+    path: /etc/kubernetes/kubelet.conf
+  register: kubelet_conf_stat
+
+
+# ------------------------------------------------------------
+# 3️⃣ Reset stale worker state
+# ------------------------------------------------------------
+
+- name: Reset stale worker state
+  block:
+
+    - name: kubeadm reset
+      command: kubeadm reset -f
+
+    - name: Remove kubelet state
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - /var/lib/kubelet
+        - /var/lib/cni
+
+    - name: Restart containerd
+      systemd:
+        name: containerd
+        state: restarted
+
+    - name: Restart kubelet
+      systemd:
+        name: kubelet
+        state: restarted
+
+  when:
+    - kubelet_conf_stat.stat.exists | default(false)
+    - worker_node_check is defined
+    - worker_node_check.rc != 0
+
+
+# ------------------------------------------------------------
+# 4️⃣ Join worker
+# ------------------------------------------------------------
+
+- name: Join worker node to cluster
+  command: "{{ hostvars[groups[control_plane_group][0]].join_command }}"
+  when: worker_node_check.rc != 0
+
+- name: Label worker node
+  command: >
+    kubectl label node {{ ansible_facts["hostname"] }}
+    node-role.kubernetes.io/worker=
+    --overwrite
+  delegate_to: "{{ groups[control_plane_group][0] }}"
+  environment:
+    KUBECONFIG: '{{ kube_admin_conf }}'
+  when: worker_node_check.rc != 0

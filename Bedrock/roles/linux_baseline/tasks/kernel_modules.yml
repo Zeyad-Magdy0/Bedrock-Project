@@ -1,0 +1,14 @@
+- name: 'Ensure required kernel_modules are loaded'
+  modprobe:
+    name: '{{ item }}'
+    state: present
+  loop: '{{ required_kernel_modules }}'
+
+- name: 'Persistent kernel modules'
+  copy:
+    dest: '/etc/modules-load.d/bedrock.conf'
+    content: |
+      {% for module in required_kernel_modules -%}
+      {{ module }}
+      {% endfor %}
+    

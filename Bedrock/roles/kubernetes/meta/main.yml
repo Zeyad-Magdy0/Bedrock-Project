@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  role_name: kubernetes
+  author: Mohammed <YourLastName>
+  description: Bootstraps and manages a kubeadm-based Kubernetes cluster with controlled recovery logic.
+  company: ""
+  license: MIT
+  min_ansible_version: "2.14"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
+
+  galaxy_tags:
+    - kubernetes
+    - kubeadm
+    - cluster
+    - controlplane
+    - devops
+
+dependencies:
+  - container_runtime

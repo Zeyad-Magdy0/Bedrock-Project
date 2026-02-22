@@ -1,0 +1,10 @@
+- name: ' Bedrock Bootstrap '
+  hosts: all
+  become: true
+  gather_facts: true
+
+  roles:
+    - linux_baseline
+    - container_runtime
+    - kubernetes
+    - vault

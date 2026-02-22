@@ -1,0 +1,317 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.5.1">
+  <diagram name="Page-1" id="hHZZm-3eHU3j7rt-lTDX">
+    <mxGraphModel dx="2339" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-2" parent="1" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_rect;gradientColor=light-dark(#000000,#CCE5FF);" value="" vertex="1">
+          <mxGeometry height="1130" width="1010" x="-130" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Ideompotent Infrastructure automation for a secure secrets management system on Kubernetes.&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="755" x="-2.5" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-5" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;exitX=1.002;exitY=0.124;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="880.0000000000005" y="259.99999999999983" as="sourcePoint" />
+            <mxPoint x="-132.02" y="261.08" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-10" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Phase 1" vertex="1">
+          <mxGeometry height="120" width="190" x="-90" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-12" parent="TOXCo-mzAOR5e56UR4-u-10" style="rounded=1;whiteSpace=wrap;html=1;" value="System Layer Contract Enforcment&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="175" x="5" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Linux-basline" vertex="1">
+          <mxGeometry height="60" width="120" x="-55" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Container-runtime" vertex="1">
+          <mxGeometry height="60" width="120" x="520" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-17" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Install Kernel&lt;div&gt;Modules&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="150" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-18" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-15" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" target="TOXCo-mzAOR5e56UR4-u-17" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="110" y="490" />
+              <mxPoint x="60" y="440" />
+            </Array>
+            <mxPoint x="60" y="490" as="sourcePoint" />
+            <mxPoint x="110" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-19" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Preflight" vertex="1">
+          <mxGeometry height="50" width="120" x="150" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-20" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-15" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-19" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="510" />
+              <mxPoint x="80" y="460" />
+            </Array>
+            <mxPoint x="80" y="510" as="sourcePoint" />
+            <mxPoint x="130" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-23" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-10" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-16" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="110" y="340" as="sourcePoint" />
+            <mxPoint x="160" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-24" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-10" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-15" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="20" y="460" as="sourcePoint" />
+            <mxPoint x="70" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-25" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="swap" vertex="1">
+          <mxGeometry height="50" width="120" x="140" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-26" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="sysctl" vertex="1">
+          <mxGeometry height="50" width="120" x="50" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-27" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="NTP&amp;nbsp;&lt;div&gt;Time&lt;/div&gt;" vertex="1">
+          <mxGeometry height="55" width="125" x="-80" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-30" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-15" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=0.923;exitY=0.931;exitDx=0;exitDy=0;exitPerimeter=0;" target="TOXCo-mzAOR5e56UR4-u-25" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="510" />
+            </Array>
+            <mxPoint x="40" y="560" as="sourcePoint" />
+            <mxPoint x="90" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-32" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-15" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" target="TOXCo-mzAOR5e56UR4-u-26" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="580" />
+              <mxPoint x="50" y="530" />
+            </Array>
+            <mxPoint x="50" y="580" as="sourcePoint" />
+            <mxPoint x="100" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-33" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-15" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="TOXCo-mzAOR5e56UR4-u-27" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="-50" y="590" />
+              <mxPoint x="-25" y="540" />
+            </Array>
+            <mxPoint x="-100" y="590" as="sourcePoint" />
+            <mxPoint x="-50" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-36" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Validate" vertex="1">
+          <mxGeometry height="80" width="120" x="700" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-37" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Install" vertex="1">
+          <mxGeometry height="80" width="120" x="400" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-38" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Configure" vertex="1">
+          <mxGeometry height="80" width="120" x="550" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-39" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-16" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.584;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="TOXCo-mzAOR5e56UR4-u-36" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="350" />
+              <mxPoint x="650" y="300" />
+            </Array>
+            <mxPoint x="650" y="350" as="sourcePoint" />
+            <mxPoint x="700" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-42" edge="1" parent="1" style="curved=1;endArrow=classic;html=1;rounded=0;" target="TOXCo-mzAOR5e56UR4-u-38" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="390" />
+              <mxPoint x="590" y="400" />
+            </Array>
+            <mxPoint x="590" y="370" as="sourcePoint" />
+            <mxPoint x="640" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-44" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-16" style="curved=1;endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-37" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="410" />
+              <mxPoint x="440" y="360" />
+            </Array>
+            <mxPoint x="440" y="410" as="sourcePoint" />
+            <mxPoint x="490" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-46" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.491;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.004;exitY=0.491;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="-125.96000000000004" y="650" as="sourcePoint" />
+            <mxPoint x="880" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-47" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Phase2&amp;nbsp;" vertex="1">
+          <mxGeometry height="100" width="210" x="-100" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-48" parent="TOXCo-mzAOR5e56UR4-u-47" style="rounded=1;whiteSpace=wrap;html=1;" value="Kubernetes&lt;div&gt;Bootstrap&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="185" x="7.5" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-49" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-47" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-50" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="160" y="750" as="sourcePoint" />
+            <mxPoint x="210" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Kubernetes" vertex="1">
+          <mxGeometry height="60" width="120" x="510" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-51" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Install&amp;nbsp;&lt;div&gt;Packages&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="150" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-52" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Init&lt;div&gt;Control Plane&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="150" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-53" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Configure&amp;nbsp;&lt;div&gt;kubectl&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="270" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-55" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Generate&amp;nbsp;&lt;div&gt;Join Command&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="410" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-56" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Join Workers" vertex="1">
+          <mxGeometry height="80" width="120" x="550" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-57" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Install&lt;div&gt;CNI&lt;/div&gt;&lt;div&gt;[Calico]&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="690" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-58" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Storage&lt;div&gt;Provisioner&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="690" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-60" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-50" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="TOXCo-mzAOR5e56UR4-u-51" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="420" y="810" as="sourcePoint" />
+            <mxPoint x="470" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-61" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-50" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="TOXCo-mzAOR5e56UR4-u-52" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="510" y="760" as="sourcePoint" />
+            <mxPoint x="440" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-62" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-50" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-53" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="450" y="870" as="sourcePoint" />
+            <mxPoint x="500" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-63" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-50" style="endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-55" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="520" y="840" as="sourcePoint" />
+            <mxPoint x="570" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-64" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-50" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-56" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="580" y="840" as="sourcePoint" />
+            <mxPoint x="630" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-65" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-50" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" target="TOXCo-mzAOR5e56UR4-u-57" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="630" y="780" as="sourcePoint" />
+            <mxPoint x="680" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-66" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-50" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-58" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="680" y="750" as="sourcePoint" />
+            <mxPoint x="730" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-67" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-2" style="endArrow=none;html=1;rounded=0;entryX=0.99;entryY=0.766;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.017;exitY=0.763;exitDx=0;exitDy=0;exitPerimeter=0;" target="TOXCo-mzAOR5e56UR4-u-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="210" y="1040" as="sourcePoint" />
+            <mxPoint x="260" y="990" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-68" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Phase3" vertex="1">
+          <mxGeometry height="130" width="205" x="-85" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Helm / Vault" vertex="1">
+          <mxGeometry height="90" width="185" x="-75" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-70" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-68" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-71" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="150" y="1120" as="sourcePoint" />
+            <mxPoint x="200" y="1070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-71" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Vault" vertex="1">
+          <mxGeometry height="60" width="120" x="315" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-72" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Install Helm" vertex="1">
+          <mxGeometry height="80" width="120" x="185" y="1090" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-73" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Add Vault&lt;div&gt;Repo&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="280" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-74" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Create Vault&lt;div&gt;Namespace&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="420" y="1180" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-75" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Deploy Vault&lt;div&gt;Via Helm&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="570" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-76" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Wait Vault" vertex="1">
+          <mxGeometry height="80" width="120" x="710" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-77" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Init Vault" vertex="1">
+          <mxGeometry height="80" width="120" x="710" y="1090" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-78" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Unseal&lt;div&gt;Vault&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="710" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-80" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-71" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-72" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="350" y="1140" as="sourcePoint" />
+            <mxPoint x="400" y="1090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-81" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-71" style="endArrow=classic;html=1;rounded=0;exitX=0.15;exitY=0.983;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-73" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="420" y="1150" as="sourcePoint" />
+            <mxPoint x="470" y="1100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-82" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-71" style="endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-74" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="520" y="1140" as="sourcePoint" />
+            <mxPoint x="570" y="1090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-83" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-71" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-75" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="470" y="1140" as="sourcePoint" />
+            <mxPoint x="520" y="1090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-84" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-71" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-76" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="540" y="1100" as="sourcePoint" />
+            <mxPoint x="590" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-85" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-71" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-77" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="530" y="1100" as="sourcePoint" />
+            <mxPoint x="580" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TOXCo-mzAOR5e56UR4-u-86" edge="1" parent="1" source="TOXCo-mzAOR5e56UR4-u-71" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="TOXCo-mzAOR5e56UR4-u-78" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="460" y="1080" as="sourcePoint" />
+            <mxPoint x="510" y="1030" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

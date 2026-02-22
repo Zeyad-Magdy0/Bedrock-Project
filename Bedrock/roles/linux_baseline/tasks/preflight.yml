@@ -1,0 +1,18 @@
+- name: 'Ensure OS is Ubuntu 22.04'
+  assert:
+    that:
+      - ansible_distribution == "Ubuntu"
+      - ansible_distribution_version is version ('22.04','>=')
+    fail_msg: 'Unsupported OS, Ubuntu 22.04 is required'
+
+- name: 'Ensure minimum cpu'
+  assert:
+    that:
+      - ansible_processor_vcpus | int >= min_cpu
+    fail_msg: "Insufficient CPU. Minimum required is {{ min_cpu }} vCPUs"
+
+- name: 'Ensure minimum memory'
+  assert:
+    that:
+      - ansible_memtotal_mb | int >= min_memory_mb
+    fail_msg: "Insufficient memory. Minimum required is {{ min_memory_mb }} MB"

@@ -1,0 +1,70 @@
+# ============================================================
+# Wait for API
+# ============================================================
+
+- name: Wait for API server
+  command: kubectl get --raw=/healthz
+  environment:
+    KUBECONFIG: "{{ kube_admin_conf }}"
+  register: api_status
+  retries: 30
+  delay: 10
+  until: api_status.rc == 0
+  changed_when: false
+
+
+# ============================================================
+# Check if Calico already installed
+# ============================================================
+
+- name: Check if Calico namespace exists
+  command: kubectl get ns calico-system
+  environment:
+    KUBECONFIG: "{{ kube_admin_conf }}"
+  register: calico_ns
+  failed_when: false
+  changed_when: false
+
+
+# ============================================================
+# Install Calico only if not present
+# ============================================================
+
+- name: Install Calico Operator CRDs
+  command: >
+    kubectl apply --server-side -f
+    https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/operator-crds.yaml
+  environment:
+    KUBECONFIG: "{{ kube_admin_conf }}"
+  when: calico_ns.rc != 0
+
+- name: Install Calico Tigera Operator
+  command: >
+    kubectl apply -f
+    https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/tigera-operator.yaml
+  environment:
+    KUBECONFIG: "{{ kube_admin_conf }}"
+  when: calico_ns.rc != 0
+
+- name: Apply Calico Custom Resources
+  command: >
+    kubectl apply -f
+    https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/custom-resources.yaml
+  environment:
+    KUBECONFIG: "{{ kube_admin_conf }}"
+  when: calico_ns.rc != 0
+
+
+# ============================================================
+# Wait for Calico to become Ready
+# ============================================================
+
+- name: Wait for Calico node DaemonSet
+  command: kubectl rollout status daemonset/calico-node -n calico-system --timeout=300s
+  environment:
+    KUBECONFIG: "{{ kube_admin_conf }}"
+  register: calico_rollout
+  retries: 10
+  delay: 20
+  until: calico_rollout.rc == 0
+  changed_when: false
